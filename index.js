@@ -13,7 +13,7 @@ const studentModel = require('./Schema/student');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ["https://library.render.com"],
+    origin: ["https://library-1vio.onrender.com"],
     methods: ["GET", "POST"],
     credentials: true
 }));
