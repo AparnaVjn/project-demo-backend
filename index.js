@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
@@ -7,6 +9,7 @@ const adminModel = require('./Schema/admin');
 const bookModel = require('./Schema/book');
 const studentModel = require('./Schema/student');
 
+
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -15,10 +18,10 @@ app.use(cors({
     credentials: true
 }));
 app.use(cookieParser())
-const JWT_SECRET = 'your-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 
-mongoose.connect('mongodb+srv://libraryproject:library123@cluster0.cgbtbyi.mongodb.net/librarydata?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI)
 
 
 
